@@ -58,7 +58,9 @@ export const Requests = () => {
 	useEffect(() => {
 		if (projectAddress) {
 			const getRequests = async () => {
+				// Get requests count
 				let requestCount: any = await getRequestsCount(projectAddress);
+				// For each index get request details
 				let requests = await Promise.all(
 					Array(requestCount.toNumber())
 						.fill(0)

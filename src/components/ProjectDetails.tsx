@@ -13,6 +13,7 @@ type ProjectDetails = {
 	manager: string;
 };
 
+// Initail state
 const initialProjectDetails = {
 	minimumContribution: '0',
 	balance: '0',
@@ -29,10 +30,11 @@ export const ProjectDetails = () => {
 
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
-		 contribute(projectAddress, contribution);
+		contribute(projectAddress, contribution);
 	};
 	useEffect(() => {
 		if (projectAddress) {
+			// Get project details and normalize the structure
 			getProjectSummary(projectAddress).then((projectDetails: any) =>
 				setProjectDetails({
 					minimumContribution: projectDetails[0].toNumber(),

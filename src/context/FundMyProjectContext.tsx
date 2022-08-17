@@ -21,6 +21,7 @@ export const FundMyProjectContext = React.createContext({
 
 const { ethereum } = window;
 
+// Fund My Project Factory contract
 const getFactoryContract = () => {
 	const provider = new ethers.providers.Web3Provider(ethereum);
 	const signer = provider.getSigner();
@@ -29,6 +30,7 @@ const getFactoryContract = () => {
 	return fundMyProjectFactoryContract;
 };
 
+// Fund My Project contract
 const getFundMyProjectContract = (address: string) => {
 	const provider = new ethers.providers.Web3Provider(ethereum);
 	const signer = provider.getSigner();
@@ -135,8 +137,9 @@ export const FundMyProjectProvider = (props: any) => {
 	useEffect(() => {
 		if (!ethereum) return alert('Please install metamask');
 		const getAccount = async () => {
-			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-			console.log(accounts);
+			// Connect to metamask
+			await ethereum.request({ method: 'eth_requestAccounts' });
+			// Get projects list
 			const fundMyProjectFactoryContract = getFactoryContract();
 			let projects = await fundMyProjectFactoryContract.getDeployedProjects();
 			setProjects(projects);
@@ -147,7 +150,7 @@ export const FundMyProjectProvider = (props: any) => {
 	useEffect(() => {
 		if (errorMessage) {
 			const timer = setTimeout(() => {
-				// clear error after 5 sec
+				// Clear error after 5 sec
 				setErrorMessage('');
 			}, 5000);
 			return () => clearTimeout(timer);
