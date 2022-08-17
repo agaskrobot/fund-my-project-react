@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import 'semantic-ui-css/semantic.min.css';
+import { Home } from './components';
 import { FundMyProjectProvider } from './context/FundMyProjectContext';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
 		<BrowserRouter>
 			<FundMyProjectProvider>
 				<Routes>
-					<Route path="/" element={<>Home</>} />
+					<Route path="/" element={<Home />} />
 					<Route path="projects">
 						<Route path="new" element={<>NewProject</>} />
 						<Route path=":projectAddress" element={<>ProjectDetails</>} />
