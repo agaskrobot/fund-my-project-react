@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-
 import 'semantic-ui-css/semantic.min.css';
+import { FundMyProjectProvider } from './context/FundMyProjectContext';
 
 function App() {
 	return (
 		<BrowserRouter>
+			<FundMyProjectProvider>
 				<Routes>
 					<Route path="/" element={<>Home</>} />
 					<Route path="projects">
@@ -23,6 +24,7 @@ function App() {
 						}
 					/>
 				</Routes>
+			</FundMyProjectProvider>
 		</BrowserRouter>
 	);
 }
