@@ -3,4 +3,4 @@ import fundMyProjectABI from './FundMyProject.json';
 
 export const contractFundMyProjectABI = fundMyProjectABI.abi;
 export const contractFactoryABI = factoryABI.abi;
-export const contractAddress = '0x6C06B1Db9ffEc411EEfC4843Ec8A0ceC1b91b61b';
+export const contractAddress = '0xa9f88c4a71aB08A66AE4DA88105DbaCf63D74e68';
