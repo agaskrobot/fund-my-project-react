@@ -53,28 +53,33 @@ export const ProjectDetails = () => {
 					<Grid.Column width={10}>
 						<Card.Group>
 							<Card
+								className="fmp__card"
 								header={projectDetails.manager}
 								meta="Address of Manager"
 								description="The manager created this campaign and can create requests to withdraw money"
 								style={{ overflowWrap: 'break-word' }}
 							/>
 							<Card
+								className="fmp__card"
 								header={projectDetails.minimumContribution}
 								meta="Minimum Contribution (wei)"
 								description="You must contribute at least this much wei to become an approver"
 							/>
 							<Card
+								className="fmp__card"
 								header={projectDetails.requestsCount}
 								meta="Number of Requests"
 								description="A request tries to withdraw money from the contract. Requests must be approved by approvers"
 								style={{ overflowWrap: 'break-word' }}
 							/>
 							<Card
+								className="fmp__card"
 								header={projectDetails.approversCount}
 								meta="Number of Approvers"
 								description="Number of people who have already donated to this campaign"
 							/>
 							<Card
+								className="fmp__card"
 								header={projectDetails.balance}
 								meta="Campaign Balance (ether)"
 								description="The balance is how much money this campaign has left to spend."
@@ -84,7 +89,7 @@ export const ProjectDetails = () => {
 					<Grid.Column width={6}>
 						<Form onSubmit={handleSubmit}>
 							<Form.Field>
-								<label>Amount to Contribute</label>
+								<label className="fmp__label">Amount to Contribute</label>
 								<Input
 									value={contribution}
 									onChange={(e) => setContribution(e.target.value)}

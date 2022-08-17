@@ -15,7 +15,7 @@ export const NewProject = () => {
 		<Layout>
 			<Form onSubmit={handleSubmit}>
 				<Form.Field>
-					<label>Minimum Contribution</label>
+					<label className="fmp__label">Minimum Contribution</label>
 					<Input
 						value={minimumContribution}
 						onChange={(e) => setMinimumContribution(e.target.value)}

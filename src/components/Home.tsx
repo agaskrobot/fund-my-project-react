@@ -9,15 +9,6 @@ export const Home = () => {
 	let navigate = useNavigate();
 	const { projects } = useContext(FundMyProjectContext);
 
-	const cardItems = projects.map((address: string) => {
-		return {
-			header: address,
-			description: <Link to={`/projects/${address}`}>View Project</Link>,
-			fluid: true,
-			style: { overflowWrap: 'break-word' }
-		};
-	});
-
 	return (
 		<Layout>
 			<h3>Open Projects</h3>
@@ -28,7 +19,16 @@ export const Home = () => {
 				floated="right"
 				onClick={() => navigate('../projects/new', { replace: false })}
 			/>
-			<Card.Group items={cardItems} />
+			<Card.Group>
+				{projects.map((address: string) => (
+					<Card
+						className="fmp__card"
+						header={address}
+						description={<Link to={`/projects/${address}`}>View Project</Link>}
+						fluid={true}
+					/>
+				))}
+			</Card.Group>
 		</Layout>
 	);
 };

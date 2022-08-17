@@ -21,15 +21,15 @@ export const NewRequest = () => {
 			<h3>Create a Request</h3>
 			<Form onSubmit={handleSubmit}>
 				<Form.Field>
-					<label>Description</label>
+					<label className="fmp__label">Description</label>
 					<Input value={description} onChange={(e) => setDescription(e.target.value)} />
 				</Form.Field>
 				<Form.Field>
-					<label>Value in Ether</label>
+					<label className="fmp__label">Value in Ether</label>
 					<Input value={value} onChange={(e) => setValue(e.target.value)} />
 				</Form.Field>
 				<Form.Field>
-					<label>Recipient</label>
+					<label className="fmp__label">Recipient</label>
 					<Input value={recipient} onChange={(e) => setRecipient(e.target.value)} />
 				</Form.Field>
 				<Button primary loading={isLoading}>

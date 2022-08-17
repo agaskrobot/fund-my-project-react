@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Menu } from 'semantic-ui-react';
+import { Container, Icon, Menu } from 'semantic-ui-react';
 import { FundMyProjectContext } from '../../context/FundMyProjectContext';
 import { Error } from './Error';
 
@@ -11,11 +11,13 @@ interface LayoutInterface {
 export const Layout: React.FC<LayoutInterface> = ({ children }): JSX.Element => {
 	const { errorMessage } = useContext(FundMyProjectContext);
 	return (
-		<Container>
+		<Container style={{ paddingTop: '10px' }}>
 			{errorMessage && <Error message={errorMessage} />}
-			<Menu style={{ marginTop: '10px' }}>
+			<Menu className="fmp__header">
 				<Menu.Item>
-					<Link to="/">FundMyProject</Link>
+					<Link to="/">
+						<Icon name="gg" /> FUND MY PROJECT
+					</Link>
 				</Menu.Item>
 				<Menu.Menu position="right">
 					<Menu.Item>
